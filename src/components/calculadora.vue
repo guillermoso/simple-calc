@@ -3,23 +3,23 @@
         <h1>Calculadora sencilla</h1>
 
         <div class="calc">
-            <input type="text">
+            <input type="text" v-model="num">
             <button id="c">C</button>
             <button id="division">/</button>
             <button id="mult">*</button>
             <button id="menos">-</button>
-            <button id="siete">7</button>
-            <button id="ocho">8</button>
-            <button id="nueve">9</button>
+            <button id="siete" @click="capturar(7)">7</button>
+            <button id="ocho" @click="capturar(8)">8</button>
+            <button id="nueve" @click="capturar(9)">9</button>
             <button id="mas">+</button>
-            <button id="cuatro">4</button>
-            <button id="cinco">5</button>
-            <button id="seis">6</button>
-            <button id="uno">1</button>
-            <button id="dos">2</button>
-            <button id="tres">3</button>
+            <button id="cuatro" @click="capturar(4)">4</button>
+            <button id="cinco" @click="capturar(5)">5</button>
+            <button id="seis" @click="capturar(6)">6</button>
+            <button id="uno" @click="capturar(1)">1</button>
+            <button id="dos" @click="capturar(2)">2</button>
+            <button id="tres" @click="capturar(3)">3</button>
             <button id="igual">=</button>
-            <button id="cero">0</button>
+            <button id="cero" @click="capturar(0)">0</button>
             <button id="punto">.</button>
         </div>
     </div>
@@ -28,7 +28,23 @@
 
 <script>
     export default {
-
+          data: function () {
+        return {
+            num: 0
+            }
+        },
+        methods: {
+            capturar: function (input) {
+                let bandera = true;
+                
+                if (bandera) {
+                    this.num = input;
+                    bandera = false;
+                }else {
+                    this.num = (this.num * 10) + input;
+                }
+            }
+        }
     }
 </script>
 
