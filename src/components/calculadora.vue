@@ -4,7 +4,7 @@
 
         <div class="calc">
             <input type="text" v-model="num">
-            <button id="c">C</button>
+            <button id="c" @click="reset()">C</button>
             <button id="division">/</button>
             <button id="mult">*</button>
             <button id="menos">-</button>
@@ -35,14 +35,10 @@
         },
         methods: {
             capturar: function (input) {
-                let bandera = true;
-                
-                if (bandera) {
-                    this.num = input;
-                    bandera = false;
-                }else {
-                    this.num = (this.num * 10) + input;
-                }
+               this.num = (this.num * 10) + input;
+            },
+            reset() {
+                this.num = 0;
             }
         }
     }
