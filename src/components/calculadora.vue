@@ -63,6 +63,10 @@
     margin: 2px;
 }
 
+.calc input {
+    text-align: right;
+}
+
 .calc button {
     border: 2px solid #141414;
     background-color: #141414;
