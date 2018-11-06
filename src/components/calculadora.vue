@@ -106,6 +106,11 @@
 
 
 <style scoped>
+
+:root {
+    --calc-theme: #141414;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -130,8 +135,8 @@
 }
 
 .calc button {
-    border: 2px solid #141414;
-    background-color: #141414;
+    border: 2px solid var(--calc-theme);
+    background-color: var(--calc-theme);
     transition-duration: 0.4s;
     border-radius: 2px;
     font-size: 1.2em;
@@ -140,7 +145,7 @@
 
 .calc button:hover {
     background-color: white;
-    color: #141414;
+    color: var(--calc-theme)
 }
 .calc input {
     grid-column: 1 / span 4;
