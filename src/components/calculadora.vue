@@ -20,7 +20,7 @@
             <button id="tres" @click="capturar(3)">3</button>
             <button id="igual" @click="igual()">=</button>
             <button id="cero" @click="capturar(0)">0</button>
-            <button id="punto">.</button>
+            <button id="punto" @click="anadirPunto()">.</button>
         </div>
     </div>
 </template>
@@ -33,34 +33,41 @@
             num: 0,
             op1: 0,
             op2: 0,
-            operacion: 0
+            operacion: 0,
+            hayResultado: false
             }
         },
         methods: {
-            capturar(input) {
-               this.num = (this.num * 10) + input;
+            capturar(input) { 
+                if (this.hayResultado == true) {
+                    this.num = 0;
+                    this.hayResultado = false;
+                }     
+
+                if (this.op1 != 0 && this.op2 == 0) {
+                    this.num = input;                   
+                }
+                else {
+                    this.num = (this.num * 10) + input;
+                }               
             },
             reset() {
                 this.num = 0;
             },
             sumar(){
-                this.op1 = this.num;
-                this.num = 0;
+                this.op1 = this.num;                
                 this.operacion = 1;                
             },
             restar(){
                 this.op1 = this.num;
-                this.num = 0;
                 this.operacion = 2;      
             },
             multiplicar(){
-                this.op1 = this.num;
-                this.num = 0;
+                this.op1 = this.num;             
                 this.operacion = 3; 
             },
             dividir(){
-                this.op1 = this.num;
-                this.num = 0;
+                this.op1 = this.num;              
                 this.operacion = 4; 
             },
             igual(){
@@ -68,19 +75,30 @@
                 switch (this.operacion) {
                     case 1:
                         this.num = this.op1 + this.op2;
+                        this.utileria();                        
                         break;
                     case 2:
                         this.num = this.op1 - this.op2;
+                        this.utileria();                        
                         break;
                     case 3:
                         this.num = this.op1 * this.op2;
+                        this.utileria();                        
                         break;
                     case 4:
                         this.num = this.op1 / this.op2;
+                        this.utileria();                        
                         break;
                     default:
                         break;
                 }
+            },
+            utileria() {
+                this.op1 = this.op2 = 0;
+                this.hayResultado = true;
+            },
+            anadirPunto() {
+                
             }
         }
     }
