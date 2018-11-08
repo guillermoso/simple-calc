@@ -86,6 +86,7 @@
                         this.utileria();                        
                         break;
                     case 4:
+                    //hola soy un comentario
                         this.num = this.op1 / this.op2;
                         this.utileria();                        
                         break;
@@ -116,6 +117,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 
 .calc {
     width: 300px;
